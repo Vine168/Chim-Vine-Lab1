@@ -1,6 +1,7 @@
 # 🚀 Step-by-Step Render Deployment Guide
 
 ## Prerequisites
+
 - ✅ GitHub repository: `Vine168/Chim-Vine-Lab1`
 - ✅ Code pushed to GitHub
 - ✅ Node.js application ready
@@ -10,21 +11,23 @@
 ## Part 1: Manual Deployment on Render
 
 ### Step 1: Create Render Account
+
 1. Go to https://dashboard.render.com/register
 2. Click **"Sign Up with GitHub"** (recommended) or use email
 3. Authorize Render to access your GitHub account
 4. Complete the registration
 
 ### Step 2: Create New Web Service
+
 1. Once logged in, click the **"New +"** button (top right)
 2. Select **"Web Service"**
 3. You'll see "Create a new Web Service" page
 
 ### Step 3: Connect Your Repository
+
 1. If you signed up with GitHub:
    - You'll see your repositories listed
    - Find and click **"Connect"** next to `Chim-Vine-Lab1`
-   
 2. If you used email signup:
    - Click **"Connect GitHub"**
    - Authorize Render
@@ -35,53 +38,67 @@
 Fill in the following settings:
 
 **Name:**
+
 ```
 chim-vine-lab1
 ```
+
 (or any unique name you prefer)
 
 **Region:**
+
 ```
 Oregon (US West)
 ```
+
 (or choose the closest to you)
 
 **Branch:**
+
 ```
 main
 ```
 
 **Root Directory:**
+
 ```
 (leave blank)
 ```
 
 **Runtime:**
+
 ```
 Node
 ```
+
 (Render should auto-detect this)
 
 **Build Command:**
+
 ```
 yarn install
 ```
 
 **Start Command:**
+
 ```
 yarn start
 ```
 
 **Instance Type:**
+
 ```
 Free
 ```
+
 (Free tier is perfect for learning!)
 
 ### Step 5: Environment Variables (Optional)
+
 For now, we don't need any. Click **"Create Web Service"**
 
 ### Step 6: Wait for Deployment
+
 1. Render will start building your app
 2. You'll see logs in real-time:
    ```
@@ -94,6 +111,7 @@ For now, we don't need any. Click **"Create Web Service"**
 4. When you see **"Your service is live 🎉"**, it's deployed!
 
 ### Step 7: Test Your Deployed App
+
 1. Find your app URL (looks like: `https://chim-vine-lab1.onrender.com`)
 2. Click on it or copy it
 3. Visit the URL in your browser

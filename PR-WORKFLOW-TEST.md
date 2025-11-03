@@ -3,11 +3,13 @@
 ## Quick Test Guide
 
 ### Step 1: Create a Feature Branch
+
 ```bash
 git checkout -b feature/test-pull-request
 ```
 
 ### Step 2: Make a Small Change
+
 Add a new route to `app.js`:
 
 ```javascript
@@ -17,6 +19,7 @@ app.get("/health", (req, res) => {
 ```
 
 ### Step 3: Add a Test for the New Route
+
 Add to `test/test.js`:
 
 ```javascript
@@ -30,6 +33,7 @@ describe("GET /health", () => {
 ```
 
 ### Step 4: Commit and Push
+
 ```bash
 git add app.js test/test.js
 git commit -m "Add health check endpoint"
@@ -37,6 +41,7 @@ git push origin feature/test-pull-request
 ```
 
 ### Step 5: Create Pull Request
+
 1. Go to https://github.com/Vine168/Chim-Vine-Lab1
 2. Click "Pull requests" tab
 3. Click "New pull request"
@@ -46,6 +51,7 @@ git push origin feature/test-pull-request
 7. Click "Create pull request"
 
 ### Step 6: Watch the Workflow
+
 1. On the PR page, you'll see "Some checks haven't completed yet"
 2. Click "Details" to watch the workflow run
 3. Verify all steps pass:
@@ -58,12 +64,14 @@ git push origin feature/test-pull-request
    - ✓ Upload artifacts
 
 ### Step 7: Review Coverage
+
 1. Scroll to the bottom of the workflow run
 2. Find "Artifacts" section
 3. Download coverage reports
 4. Verify new route is covered by tests
 
 ### Step 8: Merge PR
+
 1. If all checks pass, click "Merge pull request"
 2. Click "Confirm merge"
 3. This will trigger deployment workflow on main branch
@@ -71,6 +79,7 @@ git push origin feature/test-pull-request
 ## What to Expect
 
 ### On Pull Request:
+
 - ✅ Workflow runs automatically
 - ✅ Tests must pass
 - ✅ Coverage must meet thresholds
@@ -78,6 +87,7 @@ git push origin feature/test-pull-request
 - ❌ Deployment does NOT run (only on main)
 
 ### After Merge to Main:
+
 - ✅ Workflow runs again on main
 - ✅ Tests run
 - ✅ Coverage generated
@@ -88,12 +98,14 @@ git push origin feature/test-pull-request
 Want to see what happens when tests fail?
 
 ### Make a Breaking Change:
+
 ```javascript
 // In app.js, change the message
 res.send("Different message");
 ```
 
 ### Without Updating Test:
+
 ```bash
 git add app.js
 git commit -m "Break the build intentionally"
@@ -101,6 +113,7 @@ git push origin feature/test-pull-request
 ```
 
 ### Result:
+
 - ❌ Tests will fail
 - ❌ PR cannot be merged (if branch protection enabled)
 - ✓ You'll see exactly which test failed

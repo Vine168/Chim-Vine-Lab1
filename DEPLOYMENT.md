@@ -9,6 +9,7 @@ This project is configured to automatically deploy to a hosting platform after a
 You can deploy to any of these platforms:
 
 #### 1. Render (Recommended)
+
 1. Go to [Render Dashboard](https://dashboard.render.com/)
 2. Create a new Web Service
 3. Connect your GitHub repository
@@ -17,6 +18,7 @@ You can deploy to any of these platforms:
 6. Add it to GitHub Secrets as `RENDER_DEPLOY_HOOK`
 
 #### 2. Vercel
+
 ```bash
 # Install Vercel CLI
 npm i -g vercel
@@ -28,15 +30,18 @@ vercel link
 # Get deployment token
 vercel --token
 ```
+
 Add `VERCEL_TOKEN` and `VERCEL_PROJECT_ID` to GitHub Secrets
 
 #### 3. Railway
+
 1. Go to [Railway](https://railway.app/)
 2. Create a new project from GitHub
 3. Get the webhook URL from Settings
 4. Add it to GitHub Secrets as `RAILWAY_DEPLOY_HOOK`
 
 #### 4. Heroku
+
 ```bash
 # Install Heroku CLI
 # Create Heroku app

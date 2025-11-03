@@ -1,19 +1,8 @@
 {
   "all": true,
-  "include": [
-    "app.js"
-  ],
-  "exclude": [
-    "test/**",
-    "node_modules/**",
-    "coverage/**",
-    ".nyc_output/**"
-  ],
-  "reporter": [
-    "html",
-    "text",
-    "lcov"
-  ],
+  "include": ["app.js"],
+  "exclude": ["test/**", "node_modules/**", "coverage/**", ".nyc_output/**"],
+  "reporter": ["html", "text", "lcov"],
   "check-coverage": true,
   "lines": 90,
   "statements": 90,

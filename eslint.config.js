@@ -1,6 +1,9 @@
 const js = require("@eslint/js");
 
 module.exports = [
+  {
+    ignores: ["node_modules/**", "dist/**", "build/**", "coverage/**", "*.min.js"]
+  },
   js.configs.recommended,
   {
     languageOptions: {

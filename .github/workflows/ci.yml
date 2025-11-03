@@ -1,4 +1,4 @@
-name: Node.js CI (Yarn)
+name: Node.js CI/CD (Yarn)
 
 on:
   push:
@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node-version: [20.x, 22.x]
+        node-version: [24.x, 25.x]
 
     steps:
       - name: Checkout code
@@ -32,3 +32,36 @@ jobs:
 
       - name: Run tests
         run: yarn test
+
+      - name: Generate code coverage
+        run: yarn test:coverage
+
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report-node-${{ matrix.node-version }}
+          path: coverage/
+          retention-days: 30
+
+      - name: Upload coverage to artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-lcov-node-${{ matrix.node-version }}
+          path: coverage/lcov.info
+          retention-days: 30
+
+  deploy:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy to Render
+        run: |
+          echo "Deploying to Render..."
+          echo "In a real scenario, you would use Render's deploy hook or API"
+          echo "Deploy hook URL would be stored in GitHub Secrets"
+          # curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK }}
